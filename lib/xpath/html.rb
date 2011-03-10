@@ -37,7 +37,7 @@ module XPath
     end
 
     def fillable_field(locator, options={})
-      xpath = descendant(:input, :textarea)[~attr(:type).one_of('submit', 'image', 'radio', 'checkbox', 'hidden', 'file')]
+      xpath = descendant(:input, :textarea)[~attr(:type).one_of('submit', 'image', 'radio', 'checkbox', 'file')]
       xpath = locate_field(xpath, locator)
       xpath = xpath[field_value(options[:with])] if options.has_key?(:with)
       xpath
