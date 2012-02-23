@@ -28,7 +28,7 @@ module XPath
     end
 
     def field(locator, options={})
-      xpath = descendant(:input, :textarea, :select)[~attr(:type).one_of('submit', 'image', 'hidden')]
+      xpath = descendant(:input, :textarea, :select)[~attr(:type).one_of('submit', 'image')]
       xpath = locate_field(xpath, locator)
       xpath = xpath[attr(:checked)] if options[:checked]
       xpath = xpath[~attr(:checked)] if options[:unchecked]
