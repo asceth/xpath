@@ -13,6 +13,12 @@ module XPath
       link[attr(:id).equals(locator) | string.n.contains(locator) | attr(:title).contains(locator) | descendant(:img)[attr(:alt).contains(locator)]]
     end
 
+
+    def content(locator)
+      child(:"descendant-or-self::*")[current.n.contains(locator)]
+    end
+
+
     # Match a `submit`, `image`, or `button` element.
     #
     # @param [String] locator
